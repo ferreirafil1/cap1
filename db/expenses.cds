@@ -12,6 +12,6 @@ entity Expenses : cuid, managed {
     unit_of_measure  : String @title : 'Unit of Measure';
     unit_quantity    : Double @title : 'Unit Quantity';
     currency         : Currency;
-    unit_price       : Double @title : 'Unit Proce';
+    unit_price       : Double @title : 'Unit Price';
     total            : Double @title : 'Total';
 };

@@ -110,7 +110,7 @@
           ]
         },
         "unit_price": {
-          "@title": "Unit Proce",
+          "@title": "Unit Price",
           "type": "cds.Double"
         },
         "total": {
@@ -125,6 +125,7 @@
     },
     "CatalogService.Expenses": {
       "kind": "entity",
+      "@odata.draft.enabled": true,
       "projection": {
         "from": {
           "ref": [
@@ -235,7 +236,7 @@
           ]
         },
         "unit_price": {
-          "@title": "Unit Proce",
+          "@title": "Unit Price",
           "type": "cds.Double"
         },
         "total": {
