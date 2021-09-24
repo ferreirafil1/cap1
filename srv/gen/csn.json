@@ -4,14 +4,9 @@
     "app.expenses.Expenses": {
       "kind": "entity",
       "includes": [
-        "cuid",
         "managed"
       ],
       "elements": {
-        "ID": {
-          "key": true,
-          "type": "cds.UUID"
-        },
         "createdAt": {
           "@cds.on.insert": {
             "=": "$now"
@@ -71,6 +66,11 @@
           "@description": "{i18n>UserID.Description}",
           "type": "User",
           "length": 255
+        },
+        "ID": {
+          "@Core.Computed": true,
+          "key": true,
+          "type": "cds.UUID"
         },
         "type": {
           "@title": "Type",
@@ -121,11 +121,194 @@
     },
     "CatalogService": {
       "@source": "expenses_srv.cds",
-      "kind": "service"
+      "kind": "service",
+      "@path": "CatalogService"
     },
     "CatalogService.Expenses": {
       "kind": "entity",
       "@odata.draft.enabled": true,
+      "@UI.TextArrangement": {
+        "#": "TextOnly"
+      },
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "ID"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "type"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "location"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "product"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "product_quantity"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "unit_of_measure"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "unit_quantity"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "unit_price"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "currency_code"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "total"
+          },
+          "@UI.Importance": {
+            "#": "High"
+          }
+        }
+      ],
+      "@UI.PresentationVariant.$Type": "UI.PresentationVariantType",
+      "@UI.PresentationVariant.SortOrder": [
+        {
+          "Property": {
+            "=": "ID"
+          }
+        }
+      ],
+      "@UI.SelectionFields": [
+        {
+          "=": "ID"
+        },
+        {
+          "=": "location"
+        },
+        {
+          "=": "product"
+        }
+      ],
+      "@UI.HeaderInfo.Title.$Type": "UI.DataField",
+      "@UI.HeaderInfo.Title.Value": {
+        "=": "ID"
+      },
+      "@UI.HeaderInfo.TypeName": "{i18n>Expense}",
+      "@UI.HeaderInfo.TypeNamePlural": "{i18n>Expenses}",
+      "@UI.HeaderInfo.Description.Value": {
+        "=": "product"
+      },
+      "@UI.FieldGroup#Details.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "type"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "location"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "product"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "product_quantity"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "unit_of_measure"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "unit_quantity"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "unit_price"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "currency_code"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "total"
+          }
+        }
+      ],
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup#Details"
+        }
+      ],
       "projection": {
         "from": {
           "ref": [
@@ -134,10 +317,6 @@
         }
       },
       "elements": {
-        "ID": {
-          "key": true,
-          "type": "cds.UUID"
-        },
         "createdAt": {
           "@cds.on.insert": {
             "=": "$now"
@@ -197,6 +376,11 @@
           "@description": "{i18n>UserID.Description}",
           "type": "User",
           "length": 255
+        },
+        "ID": {
+          "@Core.Computed": true,
+          "key": true,
+          "type": "cds.UUID"
         },
         "type": {
           "@title": "Type",

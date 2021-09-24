@@ -1,17 +1,19 @@
 namespace app.expenses;
 
-using {managed} from '@sap/cds/common';
-using {cuid} from '@sap/cds/common';
-using {Currency} from '@sap/cds/common';
+using {
+    managed,
+    Currency
+} from '@sap/cds/common';
 
-entity Expenses : cuid, managed {
-    type             : String @title : 'Type';
-    location         : String @title : 'Location';
-    product          : String @title : 'Product';
-    product_quantity : Double @title : 'Product Quantity';
-    unit_of_measure  : String @title : 'Unit of Measure';
-    unit_quantity    : Double @title : 'Unit Quantity';
-    currency         : Currency;
-    unit_price       : Double @title : 'Unit Price';
-    total            : Double @title : 'Total';
+entity Expenses : managed {
+    key ID               : UUID   @Core  : {Computed};
+        type             : String @title : 'Type';
+        location         : String @title : 'Location';
+        product          : String @title : 'Product';
+        product_quantity : Double @title : 'Product Quantity';
+        unit_of_measure  : String @title : 'Unit of Measure';
+        unit_quantity    : Double @title : 'Unit Quantity';
+        currency         : Currency;
+        unit_price       : Double @title : 'Unit Price';
+        total            : Double @title : 'Total';
 };
