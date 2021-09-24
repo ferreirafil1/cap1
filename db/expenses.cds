@@ -7,7 +7,7 @@ using {
 
 entity Expenses : managed {
     key ID               : UUID   @Core  : {Computed};
-        type             : String @title : 'Type';
+        type             : String @title : 'Types';
         location         : String @title : 'Location';
         product          : String @title : 'Product';
         product_quantity : Double @title : 'Product Quantity';
